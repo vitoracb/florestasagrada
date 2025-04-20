@@ -10,6 +10,11 @@ const HomeScreen = () => {
     console.log('Login:', email, password);
   };
 
+  const handleGoogleLogin = () => {
+    // Aqui você pode adicionar a lógica de login com Google
+    console.log('Login com Google');
+  };
+
   return (
     <KeyboardAvoidingView 
       behavior={Platform.OS === "ios" ? "padding" : "height"}
@@ -46,6 +51,20 @@ const HomeScreen = () => {
 
         <TouchableOpacity style={styles.registerLink}>
           <Text style={styles.registerText}>Não tem uma conta? Cadastre-se</Text>
+        </TouchableOpacity>
+
+        <View style={styles.divider}>
+          <View style={styles.dividerLine} />
+          <Text style={styles.dividerText}>ou</Text>
+          <View style={styles.dividerLine} />
+        </View>
+
+        <TouchableOpacity 
+          style={styles.googleButton} 
+          onPress={handleGoogleLogin}
+          activeOpacity={0.6}
+        >
+          <Text style={styles.googleButtonText}>Entrar com Google</Text>
         </TouchableOpacity>
       </View>
     </KeyboardAvoidingView>
@@ -107,6 +126,43 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 16,
     textDecorationLine: 'underline',
+  },
+  divider: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    width: '100%',
+    maxWidth: 300,
+    marginVertical: 20,
+  },
+  dividerLine: {
+    flex: 1,
+    height: 1,
+    backgroundColor: '#fff',
+  },
+  dividerText: {
+    color: '#fff',
+    paddingHorizontal: 10,
+    fontSize: 16,
+  },
+  googleButton: {
+    flexDirection: 'row',
+    backgroundColor: '#fff',
+    paddingVertical: 12,
+    paddingHorizontal: 24,
+    borderRadius: 100,
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '100%',
+    maxWidth: 300,
+    elevation: 1,
+    borderWidth: 1,
+    borderColor: '#dadce0',
+  },
+  googleButtonText: {
+    color: '#3c4043',
+    fontSize: 15,
+    fontWeight: '500',
+    textAlign: 'center',
   },
 });
 
